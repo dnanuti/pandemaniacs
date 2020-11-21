@@ -12,8 +12,8 @@ import static java.nio.file.Files.lines;
 import static java.util.stream.Collectors.toList;
 
 public class CSVParser {
-    public static final String DEFAULT_PATH = "src/main/resources/data.csv";
-    public static final String HEADERS = "User,Date,Description,Amount,Category,Location,Latitude,Longitude";
+    public static final String DEFAULT_PATH = "src/main/resources/large_data.txt";
+    public static final String HEADERS = "User;Date;Description;Amount;Category;Location;Latitude;Longitude";
 
     public List<Transaction> parseTransactions(String filePath) throws IOException {
         Path path = Paths.get(filePath);

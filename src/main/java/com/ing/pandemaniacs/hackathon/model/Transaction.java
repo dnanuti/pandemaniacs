@@ -15,7 +15,7 @@ import static java.time.LocalDateTime.parse;
 @Getter
 @Setter
 public class Transaction {
-    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
+    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
 
     String user;
     LocalDateTime date;
@@ -27,11 +27,11 @@ public class Transaction {
     float longitude;
 
     public Transaction(String line) {
-        String[] transactionData = line.split(",");
+        String[] transactionData = line.split(";");
         user = transactionData[0];
-        date = parseDate(transactionData[1].split(" "));
+        date = parse(transactionData[1],formatter);
         description = transactionData[2];
-        amount = parseFloat(transactionData[3]);
+        amount = parseFloat(transactionData[3].replace(".","")) / 100;
         category = fromValue(transactionData[4]);
         location = transactionData[5];
         latitude = parseFloat(transactionData[6]);
