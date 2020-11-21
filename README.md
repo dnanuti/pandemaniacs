@@ -1,5 +1,5 @@
 # Pandemaniacs 
-## Transactions Visualizer
+## TransactionsFrenzy
 
 PoC for transactions clustering and geographic visualization.
 
