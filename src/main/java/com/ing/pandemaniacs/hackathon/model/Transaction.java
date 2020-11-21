@@ -1,6 +1,8 @@
 package com.ing.pandemaniacs.hackathon.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +12,8 @@ import static java.lang.Float.parseFloat;
 import static java.time.LocalDateTime.parse;
 
 @AllArgsConstructor
+@Getter
+@Setter
 public class Transaction {
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
 
