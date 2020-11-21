@@ -10,4 +10,6 @@ public interface RetrieveOperations {
     @GetMapping("/all")
     List<Transaction> getAll();
 
+    @GetMapping("/all/csv")
+    String getAllAsCSV();
 }

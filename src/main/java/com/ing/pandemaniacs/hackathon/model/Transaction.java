@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 import static com.ing.pandemaniacs.hackathon.model.Category.fromValue;
 import static java.lang.Float.parseFloat;
+import static java.lang.String.format;
 import static java.time.LocalDateTime.parse;
 
 @AllArgsConstructor
@@ -17,14 +18,14 @@ import static java.time.LocalDateTime.parse;
 public class Transaction {
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
 
-    String user;
-    LocalDateTime date;
-    String description;
-    float amount;
-    Category category;
-    String location;
-    float latitude;
-    float longitude;
+    private String user;
+    private LocalDateTime date;
+    private String description;
+    private float amount;
+    private Category category;
+    private String location;
+    private float latitude;
+    private float longitude;
 
     public Transaction(String line) {
         String[] transactionData = line.split(",");
@@ -43,5 +44,10 @@ public class Transaction {
         String timeToParse = (auxDate[1].length() == 4) ? "0" + auxDate[1] : auxDate[1];
 
         return parse(dateToParse + " " + timeToParse, formatter);
+    }
+
+    @Override
+    public String toString() {
+        return format("%s,%s,%s,%s,%s,%s,%s,%s", user, date, description, amount, category, location, latitude, longitude);
     }
 }

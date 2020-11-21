@@ -22,4 +22,9 @@ public enum Category {
         }
         throw new IllegalArgumentException("Not a valid category");
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
