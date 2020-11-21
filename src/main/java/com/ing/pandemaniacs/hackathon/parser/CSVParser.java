@@ -15,7 +15,8 @@ public class CSVParser {
 
     public List<Transaction> parse() throws IOException {
         Path path = Paths.get("src/main/resources/data.csv");
-        Stream<String> csvLines = lines(path);
-        return csvLines.map(Transaction::new).collect(toList());
+        try (Stream<String> csvLines = lines(path)) {
+            return csvLines.map(Transaction::new).collect(toList());
+        }
     }
 }
