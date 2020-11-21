@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import static com.ing.pandemaniacs.hackathon.model.Category.fromValue;
-import static java.lang.Float.parseFloat;
+import static java.lang.Double.parseDouble;
 import static java.lang.String.format;
 import static java.time.LocalDateTime.parse;
 
@@ -21,22 +21,22 @@ public class Transaction {
     private String user;
     private LocalDateTime date;
     private String description;
-    private float amount;
+    private Double amount;
     private Category category;
     private String location;
-    private float latitude;
-    private float longitude;
+    private Double latitude;
+    private Double longitude;
 
     public Transaction(String line) {
         String[] transactionData = line.split(";");
         user = transactionData[0];
         date = parse(transactionData[1],formatter);
         description = transactionData[2];
-        amount = parseFloat(transactionData[3].replace(".","")) / 100;
+        amount = parseDouble(transactionData[3].replace(".","")) / 100;
         category = fromValue(transactionData[4]);
         location = transactionData[5];
-        latitude = parseFloat(transactionData[6]);
-        longitude = parseFloat(transactionData[7]);
+        latitude = parseDouble(transactionData[6]);
+        longitude = parseDouble(transactionData[7]);
     }
 
     private LocalDateTime parseDate(String[] auxDate) {

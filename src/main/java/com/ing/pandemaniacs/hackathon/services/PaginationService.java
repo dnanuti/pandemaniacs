@@ -14,7 +14,9 @@ public class PaginationService {
         int start = page * size;
         int end = start + size - 1;
 
-        if (start > end || end > transactions.size()) {
+        if (transactions == null
+                || (start > end) || (end > transactions.size())
+                || (start < 0) || (end < 0)) {
             throw new IllegalArgumentException("Invalid page number and / or size");
         }
 

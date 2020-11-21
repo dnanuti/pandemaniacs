@@ -4,8 +4,6 @@ import com.ing.pandemaniacs.hackathon.interfaces.RetrieveOperations;
 import com.ing.pandemaniacs.hackathon.model.Transaction;
 import com.ing.pandemaniacs.hackathon.parser.CSVParser;
 import com.ing.pandemaniacs.hackathon.services.PaginationService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
